@@ -1,18 +1,26 @@
 <?php
-require_once('conexao.php');
+require_once('./conexao.php');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
+// Fetch livro data from the database
+$sql = "SELECT autores.id_autores AS id_autor, autores.nome AS nome_autor, livro.id_livro, livro.titulo, livro.ano_publicacao, livro.livro_id_editora, editora.nome AS nome_editora
+FROM autores
+JOIN autor_livro ON autores.id_autores = autor_livro.id_autor_livro
+JOIN livro ON autor_livro.id_livro_autor = livro.id_livro
+JOIN editora ON livro.livro_id_editora = editora.id_editora;
+";
 
-    $sql = "INSERT INTO usuarios (nome, email) VALUES ('$nome', '$email')";
+$result = $conn->query($sql);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Usuário adicionado com sucesso!";
-    } else {
-        echo "Erro ao adicionar usuário: " . $conn->error;
+if ($result->num_rows > 0) {
+    // Output data as JSON
+    $livros = array();
+    while ($row = $result->fetch_assoc()) {
+        $livros[] = $row;
     }
-
-    $conn->close();
+    echo json_encode($livros);
+} else {
+    echo "0 results";
 }
+
+$conn->close();
 ?>

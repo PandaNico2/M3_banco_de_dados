@@ -9,18 +9,18 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="./telas_add/add_livro.php">Livro</a></td>
-                    <td><a href="./telas_add/add_autor.php">Autor</a></td>
-                    <td><a href="./telas_add/add_avaliacao.php">Avaliação</a></td>
+                    <td><a href="<?php echo BASE_URL; ?>telas_add/add_livro.php">Livro</a></td>
+                    <td><a href="<?php echo BASE_URL; ?>telas_add/add_autor.php">Autor</a></td>
+                    <td><a href="<?php echo BASE_URL; ?>telas_add/add_avaliacao.php">Avaliação</a></td>
                 </tr>
                 <tr>
-                    <td><a href="./telas_add/add_editora.php">Editoras</a></td>
-                    <td><a href="./telas_add/add_leitor.php">Leitor</a></td>
-                    <td><a href="./telas_add/add_emprestimo.php">Emprestimos</a></td>
+                    <td><a href="<?php echo BASE_URL; ?>telas_add/add_editora.php">Editoras</a></td>
+                    <td><a href="<?php echo BASE_URL; ?>telas_add/add_leitor.php">Leitor</a></td>
+                    <td><a href="<?php echo BASE_URL; ?>telas_add/add_emprestimo.php">Emprestimos</a></td>
                 </tr>
             </tbody>
         </table>
-        <img src="./img/logo_roxa.png" alt="">
+        <img src="../img/logo_roxa.png" alt="" onerror="this.src='./img/logo_roxa.png'">
     </footer>
 
 </body>
