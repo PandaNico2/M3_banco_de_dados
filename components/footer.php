@@ -20,7 +20,7 @@
                 </tr>
             </tbody>
         </table>
-        <img src="../img/logo_roxa.png" alt="" onerror="this.src='./img/logo_roxa.png'">
+        <img src="<?php echo BASE_URL; ?>img/logo_roxa.png" alt="">
     </footer>
 
 </body>

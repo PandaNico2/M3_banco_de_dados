@@ -23,3 +23,12 @@ div.livro{
     width: 100%;
     margin: 20px 0px
   }
+
+  button.excluir{
+    color: white;
+    background-color: red;
+    border: 0;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+  }
