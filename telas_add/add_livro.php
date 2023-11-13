@@ -3,7 +3,7 @@ require_once('../components/head.php');
 ?>
 
 <div class="content">
-    <form id="criar_livro">
+    <form method="POST" action="" id="criar_livro">
         <label for="">Titulo</label>
         <input type="text" id="titulo" placeholder="Titulo">
         <br>
@@ -39,7 +39,7 @@ require_once('../components/head.php');
         </select>
         <br>
 
-        <button>Adicionar</button>
+        <button type="submit" value="salvar">Adicionar</button>
     </form>
 </div>
 
