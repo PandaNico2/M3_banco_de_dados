@@ -31,11 +31,12 @@ if ($result->num_rows > 0) {
                 <td> <?= htmlspecialchars($autor['nacionalidade']); ?> </td>
                 <td> <?= htmlspecialchars($autor['data_nascimento']); ?> </td>
                 <td>
+                <a href="../telas_alter/alter_autor.php?id=<?= $autor['id_autores']; ?>">
                     <button type="button" class="btn btn-secondary">
-                        <a href="../telas_alter/alter_autor.php?id=<?= $autor['id_autores']; ?>">
+                       
                             Editar
-                        </a>
-                    </button>
+                        </button>
+                    </a>
                     <a href="../importar/excluir_autor.php?id=<?= $autor['id_autores']; ?>">
                         <button type="button" class="btn btn-danger">Excluir</button>
                     </a>
