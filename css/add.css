@@ -1,0 +1,34 @@
+form{
+    margin: 0 auto;
+    width: 30%;
+  }
+  form div.form-group input{
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  form button.btn-secondary{
+    width: 100%;
+    background-color: #6519fb;
+    border: 0 !important;
+  }
+  
+  div.titulo{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: #6519fb;
+  }
+  div.titulo i{
+    color: #6519fb;
+    font-size: 20px;
+  }
+
+  select{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-radius: 8px
+  }
