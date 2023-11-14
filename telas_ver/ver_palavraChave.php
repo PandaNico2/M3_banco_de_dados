@@ -3,7 +3,7 @@ require_once('../components/head.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/m3_banco_de_dados/conexao.php');
 
 $lista = [];
-$result = $conn->query("SELECT * FROM palavraChave;");
+$result = $conn->query("SELECT * FROM palavra_chave;");
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $lista[] = $row;

@@ -30,7 +30,7 @@ define('BASE_URL', 'http://localhost/m3_banco_de_dados/');
             <a href="<?php echo BASE_URL; ?>telas_ver/ver_editora.php">
                 <h5>Editoras</h5>
             </a>
-            <a href="<?php echo BASE_URL; ?>telas_ver/ver_avaliação.php">
+            <a href="<?php echo BASE_URL; ?>telas_ver/ver_avaliacao.php">
                 <h5>Avaliações</h5>
             </a>
             <a href="<?php echo BASE_URL; ?>telas_ver/ver_emprestimo.php">
