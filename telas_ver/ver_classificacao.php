@@ -12,6 +12,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
+    <h1>classificação</h1>
 
     <a href="../telas_add/add_classificacao.php">+ Adicionar classificacao</a>
     <table class="table">

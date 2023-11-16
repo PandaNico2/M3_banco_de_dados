@@ -27,6 +27,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
+    <h1>Emprestimo</h1>
 
     <a href="../telas_add/add_emprestimo.php">+ Adicionar emprestimo</a>
     <table class="table">

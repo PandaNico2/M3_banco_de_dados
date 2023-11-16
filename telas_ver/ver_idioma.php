@@ -12,6 +12,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
+    <h1>Idioma</h1>
 
     <a href="../telas_add/add_idioma.php">+ Adicionar idioma</a>
     <table class="table">

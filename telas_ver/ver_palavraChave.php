@@ -12,6 +12,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
+    <h1>Palavra Chave</h1>
 
     <a href="../telas_add/add_palavraChave.php">+ Adicionar palavraChave</a>
     <table class="table">

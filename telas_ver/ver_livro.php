@@ -35,6 +35,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
+    <h1>Livro</h1>
 
     <a href="../telas_add/add_livro.php">+ Adicionar livro</a>
     <table class="table">

@@ -12,6 +12,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
+    <h1>Status</h1>
 
     <a href="../telas_add/add_status.php">+ Adicionar status</a>
     <table class="table">

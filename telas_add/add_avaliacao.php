@@ -10,8 +10,16 @@ if ($result->num_rows > 0) {
     }
 }
 
+$leitor = [];
+$result = $conn->query("SELECT id_leitor, nome FROM leitor;");
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $leitor[] = $row;
+    }
+}
+
 $classificacao = [];
-$result = $conn->query("SELECT id_livro, titulo FROM livro;");
+$result = $conn->query("SELECT * FROM classificacao;");
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $classificacao[] = $row;
@@ -31,8 +39,16 @@ if ($result->num_rows > 0) {
             <input type="text" placeholder="comentario. . ." id="comentario" name="comentario">
         </div>
         <div class="form-group">
-            <label for="data_comentario">Localizacao</label>
+            <label for="data_comentario">Data do comentario</label>
             <input type="date" id="data_comentario" name="data_comentario">
+        </div>
+        <div class="form-group">
+            <label for="avaliacao_id_leitor">Leitor</label>
+            <select name="avaliacao_id_leitor" id="avaliacao_id_leitor">
+                <?php foreach ($leitor as $leitor) : ?>
+                    <option value="<?= htmlspecialchars($leitor['id_leitor']); ?>"><?= htmlspecialchars($leitor['nome']); ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="avaliacao_id_livro">Livro</label>
@@ -46,7 +62,7 @@ if ($result->num_rows > 0) {
             <label for="avaliacao_id_classificacao">Classificacao</label>
             <select name="avaliacao_id_classificacao" id="avaliacao_id_classificacao">
             <?php foreach ($classificacao as $classificacao) : ?>
-                    <option value="<?= htmlspecialchars($livro['id_classificacao']); ?>"><?= htmlspecialchars($livro['num_estrelas']); ?></option>
+                    <option value="<?= htmlspecialchars($classificacao['id_classificacao']); ?>"><?= htmlspecialchars($classificacao['num_estrelas']); ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

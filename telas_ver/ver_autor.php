@@ -14,7 +14,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
-
+    <h1>Autor</h1>
     <a href="../telas_add/add_autor.php">Adicionar Autor</a>
     <table class="table">
         <thead class="thead-dark">
@@ -33,9 +33,9 @@ if ($result->num_rows > 0) {
                 <td> <?= htmlspecialchars($autor['nacionalidade']); ?> </td>
                 <td> <?= htmlspecialchars($autor['data_nascimento']); ?> </td>
                 <td>
-                <a href="../telas_alter/alter_autor.php?id=<?= $autor['id_autores']; ?>">
-                    <button type="button" class="btn btn-secondary">
-                       
+                    <a href="../telas_alter/alter_autor.php?id=<?= $autor['id_autores']; ?>">
+                        <button type="button" class="btn btn-secondary">
+
                             Editar
                         </button>
                     </a>

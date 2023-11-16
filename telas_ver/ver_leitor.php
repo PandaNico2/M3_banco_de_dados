@@ -12,6 +12,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
+    <h1>leitor</h1>
 
     <a href="../telas_add/add_leitor.php">+ Adicionar leitor</a>
     <table class="table">
