@@ -29,7 +29,9 @@ if ($result->num_rows > 0) {
 <div class="content">
     <h1>Emprestimo</h1>
 
-    <a href="../telas_add/add_emprestimo.php">+ Adicionar emprestimo</a>
+    <a href="../telas_add/add_emprestimo.php">
+    <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Emprestimo</button>
+    </a>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -65,7 +67,7 @@ if ($result->num_rows > 0) {
                             Editar
                         </button>
                     </a>
-                    <a href="../importar/excluir_emprestimo.php?id=<?= $emprestimo['id_emprestimo']; ?>">
+                    <a href="/m3_banco_de_dados/importar/excluir/excluir_emprestimo.php?id=<?= $emprestimo['id_emprestimo']; ?>">
                         <button type="button" class="btn btn-danger">Excluir</button>
                     </a>
                 </td>

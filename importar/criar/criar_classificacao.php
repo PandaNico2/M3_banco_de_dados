@@ -11,11 +11,11 @@ if ($num_estrelas) {
         
         $sql->execute();
         
-        header('Location: ../telas_ver/ver_classificacao.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_classificacao.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir classificacao: " . $e->getMessage();
-        header('Location: ../telas_ver/ver_classificacao.php');
+        header('Location: /m3_banco_de_dados/telas_add/add_classificacao.php');
         exit;
     }
 } else {

@@ -14,11 +14,11 @@ if ($nome) {
         
         $sql->execute();
         
-        header('Location: ../telas_ver/ver_leitor.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_leitor.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir leitor: " . $e->getMessage();
-        header('Location: ../telas_ver/ver_leitor.php');
+        header('Location: /m3_banco_de_dados/telas_add/add_leitor.php');
         exit;
     }
 } else {

@@ -7,7 +7,6 @@ require_once('./conexao.php');
 
 <h1>Pendente</h1>
 <ul>
-    <li>Vizualizar "mais informações" em livro</li>
     <li>Alterar FK</li>
     <li>Alets</li>
     <li>style alter</li>

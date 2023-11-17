@@ -15,12 +15,12 @@ if ($data_emprestimo && $data_devolucao && $emprestimo_id_livro && $emprestimo_i
         
         $sql->execute();
         
-        header('Location: ../telas_ver/ver_emprestimo.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_emprestimo.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir empréstimo: " . $e->getMessage();
         // Remova a linha abaixo se não quiser redirecionar em caso de erro
-        header('Location: ../telas_ver/ver_emprestimo.php');
+        header('Location: /m3_banco_de_dados/telas_add/add_emprestimo.php');
         exit;
     }
 } else {

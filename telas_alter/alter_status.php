@@ -24,7 +24,7 @@ if ($id) {
 <div class="content">
 
     <h1>Editar usuário</h1>
-    <form action="../importar/editar_status.php" method="POST">
+    <form action="/m3_banco_de_dados/importar/editar/editar_status.php" method="POST">
         <input type="hidden" value="<?= $status['id_status']; ?>"  name="id_status" >
         <label for="status">Status</label>
         <input type="text" value="<?= $status['status']; ?>" name="status">

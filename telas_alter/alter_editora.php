@@ -24,7 +24,7 @@ if ($id) {
 <div class="content">
 
     <h1>Editar usuário</h1>
-    <form action="../importar/editar_editora.php" method="POST">
+    <form action="/m3_banco_de_dados/importar/editar/editar_editora.php" method="POST">
         <input type="hidden" value="<?= $editora['id_editora']; ?>"  name="id_editora" >
         <label for="nome">Nome</label>
         <input type="text" value="<?= $editora['nome']; ?>" name="nome">

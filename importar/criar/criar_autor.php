@@ -14,11 +14,11 @@ if ($nome && $nacionalidade && $data_nascimento) {
         $sql->execute();
         
         echo "AUTOR INSERIDO!!!";
-        header('Location: C:\xampp\htdocs\m3_banco_de_dados\telas_ver\ver_autor.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_autor.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir autor: " . $e->getMessage();
-        header('Location: C:\xampp\htdocs\m3_banco_de_dados\telas_add\add_autor.php');
+        header('Location: /m3_banco_de_dados/telas_add/add_autor.php');
         exit;
     }
 } else {
@@ -26,3 +26,6 @@ if ($nome && $nacionalidade && $data_nascimento) {
     exit;
 }
 ?>
+
+<a href="">aqui</a>
+

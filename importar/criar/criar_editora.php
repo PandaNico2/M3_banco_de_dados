@@ -13,11 +13,11 @@ if ($nome && $localizacao) {
         
         $sql->execute();
         
-        header('Location: ../telas_ver/ver_editora.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_editora.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir autor: " . $e->getMessage();
-        header('Location: ../telas_ver/ver_editora.php');
+        header('Location: /m3_banco_de_dados/telas_add/add_editora.php');
         exit;
     }
 } else {

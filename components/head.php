@@ -27,9 +27,6 @@ define('BASE_URL', 'http://localhost/m3_banco_de_dados/');
             <a href="<?php echo BASE_URL; ?>telas_ver/ver_livro.php">
                 <h5>Livros</h5>
             </a>
-            <a href="<?php echo BASE_URL; ?>telas_ver/ver_editora.php">
-                <h5>Editoras</h5>
-            </a>
             <a href="<?php echo BASE_URL; ?>telas_ver/ver_avaliacao.php">
                 <h5>Avaliações</h5>
             </a>
@@ -38,11 +35,11 @@ define('BASE_URL', 'http://localhost/m3_banco_de_dados/');
             </a>
         </div>
 
-        <div class="login">
+        <!-- <div class="login">
             <div><i class="fa-solid fa-circle-user"></i></div>
             <div class="nome">
                 <p>Olá Bem vindo (a)</p><br>
                 <p><a href="<?php echo BASE_URL; ?>telas_add/add_leitor.php">Entre ou cadastre-se</a></p>
             </div>
-        </div>
+        </div> -->
     </nav>

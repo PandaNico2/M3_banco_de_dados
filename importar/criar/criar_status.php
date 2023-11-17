@@ -11,11 +11,11 @@ if ($status) {
         
         $sql->execute();
         
-        header('Location: ../telas_ver/ver_status.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_status.php');
         exit;
     } catch (PDOException $e) {
-        echo "Erro ao inserir status: " . $e->getMessage();
-        header('Location: ../telas_ver/ver_status.php');
+        echo "Erro ao inserir status: ";
+        header('Location: /telas_ver/ver_status.php');
         exit;
     }
 } else {

@@ -12,10 +12,10 @@ if ($id && $nome && $localizacao) {
     $sql->execute();
     $sql->close();
 
-    header('Location: ../telas_ver/ver_editora.php');
+    header('Location: /m3_banco_de_dados/telas_ver/ver_editora.php');
     exit;
 } else {
-    header('Location: ../telas_ver/ver_editora.php');
+    header('Location: /m3_banco_de_dados/telas_ver/ver_editora.php');
     exit;
 }
 ?>

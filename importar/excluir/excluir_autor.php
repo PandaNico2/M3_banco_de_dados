@@ -17,6 +17,6 @@ if ($id !== null && $id !== false) {
     $sql_autores->close();
 }
 
-header("Location: /m3_banco_de_dados/telas_ver/ver_autor.php");
+header('Location: /m3_banco_de_dados/telas_ver/ver_autor.php');
 exit;
 ?>

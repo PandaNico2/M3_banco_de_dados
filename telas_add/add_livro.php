@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
-    <form action="../importar/criar_livro.php" method="POST">
+    <form action="/m3_banco_de_dados/importar/criar/criar_livro.php" method="POST">
         <div class="titulo">
             <h1>Criar Livro</h1>
             <a href="../telas_ver/ver_livro.php"><i class="fa-solid fa-eye"></i></a>

@@ -39,7 +39,7 @@ if ($resultClassificacoes->num_rows > 0) {
 ?>
 
 <div class="content">
-    <form action="../importar/editar_avaliacao.php" method="POST">
+    <form action="/m3_banco_de_dados/importar/editar/editar_avaliacao.php" method="POST">
         <div class="titulo">
             <h1>Criar Avaliacao</h1>
             <a href="../telas_ver/ver_avaliacao.php"><i class="fa-solid fa-address-card"></i></a>

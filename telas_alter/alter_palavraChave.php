@@ -24,7 +24,7 @@ if ($id) {
 <div class="content">
 
     <h1>Editar usuário</h1>
-    <form action="../importar/editar_palavraChave.php" method="POST">
+    <form action="/m3_banco_de_dados/importar/editar/editar_palavraChave.php" method="POST">
         <input type="hidden" value="<?= $palavraChave['id_palavra_chave']; ?>"  name="id_palavra_chave" >
         <label for="palavra">palavra</label>
         <input type="text" value="<?= $palavraChave['palavra']; ?>" name="palavra">

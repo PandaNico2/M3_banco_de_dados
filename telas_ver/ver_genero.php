@@ -14,7 +14,9 @@ if ($result->num_rows > 0) {
 <div class="content">
     <h1>Genero</h1>
 
-    <a href="../telas_add/add_genero.php">+ Adicionar genero</a>
+    <a href="../telas_add/add_genero.php">
+    <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Genero</button>
+    </a>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -33,7 +35,7 @@ if ($result->num_rows > 0) {
                             Editar
                         </button>
                     </a>
-                    <a href="../importar/excluir_genero.php?id=<?= $genero['id_genero']; ?>">
+                    <a href="/m3_banco_de_dados/importar/excluir/excluir_genero.php?id=<?= $genero['id_genero']; ?>">
                         <button type="button" class="btn btn-danger">Excluir</button>
                     </a>
                 </td>

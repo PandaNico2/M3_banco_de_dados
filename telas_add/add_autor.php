@@ -2,9 +2,9 @@
 require_once('../components/head.php');
 ?>
 
-<div class="content">
-    
-    <form action="../importar/criar_autor.php" method="POST">
+
+<div class="content">    
+    <form action="/m3_banco_de_dados/importar/criar/criar_autor.php" method="POST">
     <div class="titulo">
         <h1>Criar Autor</h1>
         <a href="../telas_ver/ver_autor.php"><i class="fa-solid fa-eye"></i></a>

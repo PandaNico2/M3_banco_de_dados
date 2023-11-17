@@ -11,11 +11,12 @@ if ($id && $status) {
     $sql->execute();
     $sql->close();
 
-    header('Location: ../telas_ver/ver_status.php');
+    header('Location: /m3_banco_de_dados/telas_ver/ver_status.php');
     exit;
 } else {
     echo "erro!";
-    // header('Location: ../telas_ver/ver_status.php');
+    header('Location: /m3_banco_de_dados/telas_ver/ver_status.php');
     exit;
 }
 ?>
+

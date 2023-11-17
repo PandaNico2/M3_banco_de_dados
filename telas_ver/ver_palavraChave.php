@@ -14,7 +14,9 @@ if ($result->num_rows > 0) {
 <div class="content">
     <h1>Palavra Chave</h1>
 
-    <a href="../telas_add/add_palavraChave.php">+ Adicionar palavraChave</a>
+    <a href="../telas_add/add_palavraChave.php">
+    <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Palavra Chave</button>
+    </a>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -33,7 +35,7 @@ if ($result->num_rows > 0) {
                             Editar
                         </button>
                     </a>
-                    <a href="../importar/excluir_palavraChave.php?id=<?= $palavraChave['id_palavra_chave']; ?>">
+                    <a href="/m3_banco_de_dados/importar/excluir/excluir_palavraChave.php?id=<?= $palavraChave['id_palavra_chave']; ?>">
                         <button type="button" class="btn btn-danger">Excluir</button>
                     </a>
                 </td>

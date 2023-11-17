@@ -12,9 +12,11 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
-    <h1>classificação</h1>
+    <h1>Classificação</h1>
 
-    <a href="../telas_add/add_classificacao.php">+ Adicionar classificacao</a>
+    <a href="../telas_add/add_classificacao.php">
+        <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Classificação</button>
+    </a>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -33,7 +35,7 @@ if ($result->num_rows > 0) {
                             Editar
                         </button>
                     </a>
-                    <a href="../importar/excluir_classificacao.php?id=<?= $classificacao['id_classificacao']; ?>">
+                    <a href="/m3_banco_de_dados/importar/excluir/excluir_classificacao.php?id=<?= $classificacao['id_classificacao']; ?>">
                         <button type="button" class="btn btn-danger">Excluir</button>
                     </a>
                 </td>

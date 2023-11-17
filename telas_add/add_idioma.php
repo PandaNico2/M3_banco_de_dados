@@ -4,7 +4,7 @@ require_once('../components/head.php');
 
 <div class="content">
     
-    <form action="../importar/criar_idioma.php" method="POST">
+    <form action="/m3_banco_de_dados/importar/criar/criar_idioma.php" method="POST">
     <div class="titulo">
         <h1>Criar Idioma</h1>
         <a href="../telas_ver/ver_idioma.php"><i class="fa-solid fa-eye"></i></a>

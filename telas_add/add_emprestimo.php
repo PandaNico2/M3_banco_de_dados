@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
 
 <div class="content">
     
-    <form action="../importar/criar_emprestimo.php" method="POST">
+    <form action="/m3_banco_de_dados/importar/criar/criar_emprestimo.php" method="POST">
     <div class="titulo">
         <h1>Criar Emprestimo</h1>
         <a href="../telas_ver/ver_emprestimo.php"><i class="fa-solid fa-eye"></i></a>

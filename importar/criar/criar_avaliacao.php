@@ -15,11 +15,11 @@ if ($comentario && $data_comentario && $avaliacao_id_livro && $avaliacao_id_leit
         
         $sql->execute();
 
-        header('Location: ../telas_ver/ver_avaliacao.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_avaliacao.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir autor: " . $e->getMessage();
-        header('Location: ../telas_ver/ver_avaliacao.php');
+        header('Location: /m3_banco_de_dados/telas_add/add_avaliacao.php');
         exit;
     }
 } else {

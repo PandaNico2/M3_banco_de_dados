@@ -8,14 +8,14 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $lista[] = $row;
     }
-} else {
-    echo "nenhum dado emcontrado!";
 }
 ?>
 
 <div class="content">
     <h1>Autor</h1>
-    <a href="../telas_add/add_autor.php">Adicionar Autor</a>
+    <a href="../telas_add/add_autor.php">
+        <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Autor</button>
+    </a>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
                             Editar
                         </button>
                     </a>
-                    <a href="../importar/excluir_autor.php?id=<?= $autor['id_autores']; ?>">
+                    <a href="/m3_banco_de_dados/importar/excluir/excluir_autor.php?id=<?= $autor['id_autores']; ?>">
                         <button type="button" class="btn btn-danger">Excluir</button>
                     </a>
                 </td>

@@ -25,18 +25,23 @@ if ($result->num_rows > 0) {
 <div class="content">
     <h1>Livro</h1>
 
-    <a href="../telas_add/add_livro_autor.php">+ Adicionar livro</a>
+    <a href="../telas_add/add_livro_autor.php">
+    <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Livro</button>
+    </a>
 
+    <a href="../"></a>
     <div class="box" id="lista-livro">
         <?php $count = 0; ?>
         <?php foreach ($lista as $livro) : ?>
             <div class="livro" id="<?= htmlspecialchars($livro['id_livro']); ?>">
-                <a href="../importar/excluir_livro.php?id=<?= $livro['id_livro']; ?>">
+            <div class="botoes_acao">
+                <a href="../importar/excluir/excluir_livro.php?id=<?= $livro['id_livro']; ?>">
                     <button type="button" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
                 </a>
                 <a href="../telas_alter/alter_livro.php?id=<?= $livro['id_livro']; ?>">
                     <button type="button" class="btn btn-secondary"><i class="fa-solid fa-pen"></i></button>
                 </a>
+            </div>
 
                 <p id="<?= htmlspecialchars($livro['id_autor_livro']); ?>"><?= htmlspecialchars($livro['nome_autor']); ?></p>
                 <h3><?= htmlspecialchars($livro['titulo']); ?></h3>
@@ -45,8 +50,8 @@ if ($result->num_rows > 0) {
                     <p id="<?= htmlspecialchars($livro['livro_id_editora']); ?>"><?= htmlspecialchars($livro['nome_editora']); ?></p>
                 </div>
 
-                <a href="../importar/detalhes_livro.php?id=<?= $livro['id_livro']; ?>">
-                    <button type="button" class="btn btn-info"><i class="fa-solid fa-info"></i></button>
+                <a href="./detalhes_livro.php?id=<?= $livro['id_livro']; ?>">
+                    <button type="button" class="btn btn-info"><i class="fa-solid fa-info"></i> ver mais informações</button>
                 </a>
             </div>
             <?php
@@ -114,3 +119,4 @@ if ($result->num_rows > 0) {
 <?php
 require_once('../components/footer.php');
 ?>
+<link rel="stylesheet" href="../css/ver_livro.css">

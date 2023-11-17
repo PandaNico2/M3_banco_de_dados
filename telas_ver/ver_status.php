@@ -14,7 +14,9 @@ if ($result->num_rows > 0) {
 <div class="content">
     <h1>Status</h1>
 
-    <a href="../telas_add/add_status.php">+ Adicionar status</a>
+    <a href="../telas_add/add_status.php">
+    <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Status</button>
+    </a>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -33,7 +35,7 @@ if ($result->num_rows > 0) {
                             Editar
                         </button>
                     </a>
-                    <a href="../importar/excluir_status.php?id=<?= $status['id_status']; ?>">
+                    <a href="/m3_banco_de_dados/importar/excluir/excluir_status.php?id=<?= $status['id_status']; ?>">
                         <button type="button" class="btn btn-danger">Excluir</button>
                     </a>
                 </td>

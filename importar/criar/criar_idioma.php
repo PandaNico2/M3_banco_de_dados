@@ -11,11 +11,11 @@ if ($nome) {
         
         $sql->execute();
         
-        header('Location: ../telas_ver/ver_idioma.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_idioma.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir idioma: " . $e->getMessage();
-        header('Location: ../telas_ver/ver_idioma.php');
+        header('Location: /m3_banco_de_dados/telas_add/add_idioma.php');
         exit;
     }
 } else {

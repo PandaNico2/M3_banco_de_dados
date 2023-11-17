@@ -9,6 +9,7 @@ $sinopse = filter_input(INPUT_POST, 'sinopse');
 $livro_id_genero = filter_input(INPUT_POST, 'livro_id_genero');
 $livro_id_editora = filter_input(INPUT_POST, 'livro_id_editora');
 $livro_id_idioma = filter_input(INPUT_POST, 'livro_id_idioma');
+
 $livro_livro_autor = filter_input(INPUT_POST, 'livro_livro_autor');
 
 if ($titulo && $ano_publicacao && $isbn && $numero_paginas && $sinopse && $livro_id_genero && $livro_id_editora && $livro_id_idioma && $livro_livro_autor) {
@@ -20,11 +21,11 @@ if ($titulo && $ano_publicacao && $isbn && $numero_paginas && $sinopse && $livro
         
         $sql->execute();
         
-        header('Location: ../telas_ver/ver_livro.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_livro.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir livro: " . $e->getMessage();
-        header('Location: ../telas_ver/ver_livro.php');
+        header('Location: /telas_ver/ver_livro.php');
         exit;
     }
 } else {

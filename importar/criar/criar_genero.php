@@ -11,11 +11,11 @@ if ($genero) {
         
         $sql->execute();
         
-        header('Location: ../telas_ver/ver_genero.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_genero.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir genero: " . $e->getMessage();
-        header('Location: ../telas_ver/ver_genero.php');
+        header('Location: /m3_banco_de_dados/telas_add/add_genero.php');
         exit;
     }
 } else {

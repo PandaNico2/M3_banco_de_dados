@@ -11,11 +11,11 @@ if ($palavra) {
         
         $sql->execute();
         
-        header('Location: ../telas_ver/ver_palavraChave.php');
+        header('Location: /m3_banco_de_dados/telas_ver/ver_palavraChave.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir palavra: " . $e->getMessage();
-        header('Location: ../telas_ver/ver_palavraChave.php');
+        header('Location: /telas_ver/ver_palavraChave.php');
         exit;
     }
 } else {

@@ -11,11 +11,11 @@ if ($id && $palavra) {
     $sql->execute();
     $sql->close();
 
-    header('Location: ../telas_ver/ver_palavraChave.php');
+    header('Location: /m3_banco_de_dados/telas_ver/ver_palavraChave.php');
     exit;
 } else {
     echo "erro!";
-    // header('Location: ../telas_ver/ver_palavraChave.php');
+    header('Location: /m3_banco_de_dados/telas_ver/ver_palavraChave.php');
     exit;
 }
 ?>
