@@ -9,6 +9,7 @@ if ($result->num_rows > 0) {
         $lista[] = $row;
     }
 }
+
 ?>
 
 <div class="content">
@@ -21,14 +22,20 @@ if ($result->num_rows > 0) {
         <thead class="thead-dark">
             <tr>
                 <th>Id</th>
-                <th>num_estrelas</th>
+                <th>Número de estrelas</th>
+                <th></th>
                 <th>Ações</th>
             </tr>
         </thead>
         <?php foreach ($lista as $classificacao) : ?>
             <tr>
                 <td> <?= htmlspecialchars($classificacao['id_classificacao']); ?> </td>
-                <td> <?= htmlspecialchars($classificacao['num_estrelas']); ?> </td>
+                <td><?= htmlspecialchars($classificacao['num_estrelas']); ?> </td>
+                <td><?php
+                for ($i = 0; $i < $classificacao['num_estrelas']; $i++) {
+                    echo '<i class="fa-solid fa-star"></i> ';
+                }
+                ?></td>
                 <td>
                     <a href="../telas_alter/alter_classificacao.php?id=<?= $classificacao['id_classificacao']; ?>">
                         <button type="button" class="btn btn-secondary">

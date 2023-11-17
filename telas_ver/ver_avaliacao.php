@@ -60,7 +60,11 @@ if ($result->num_rows > 0) {
                 <td> <?= htmlspecialchars($avaliacao['avaliacao_id_leitor']); ?> </td>
                 <td> <?= htmlspecialchars($avaliacao['nome_do_leitor']); ?> </td>
                 <td> <?= htmlspecialchars($avaliacao['avaliacao_id_classificacao']); ?> </td>
-                <td> <?= htmlspecialchars($avaliacao['num_estrelas']); ?> </td>
+                <td> 
+                    <?php for ($i = 0; $i < $avaliacao['num_estrelas']; $i++) {
+                            echo '<i class="fa-solid fa-star"></i> ';
+                        } ?>
+                </td>
                 <td>
                     <a href="../telas_alter/alter_avaliacao.php?id=<?= $avaliacao['id_avaliacao']; ?>">
                         <button type="button" class="btn btn-secondary">
