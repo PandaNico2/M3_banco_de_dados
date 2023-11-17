@@ -9,13 +9,14 @@ $sinopse = filter_input(INPUT_POST, 'sinopse');
 $livro_id_genero = filter_input(INPUT_POST, 'livro_id_genero');
 $livro_id_editora = filter_input(INPUT_POST, 'livro_id_editora');
 $livro_id_idioma = filter_input(INPUT_POST, 'livro_id_idioma');
+$livro_livro_autor = filter_input(INPUT_POST, 'livro_livro_autor');
 
-if ($titulo && $ano_publicacao && $isbn && $numero_paginas && $sinopse && $livro_id_genero && $livro_id_editora && $livro_id_idioma ) {
+if ($titulo && $ano_publicacao && $isbn && $numero_paginas && $sinopse && $livro_id_genero && $livro_id_editora && $livro_id_idioma && $livro_livro_autor) {
     try {
         $sql = $conn->prepare("INSERT INTO livro (titulo, ano_publicacao, isbn, numero_paginas, sinopse, livro_id_genero, livro_id_editora, livro_id_idioma)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 
-        $sql->bind_param('ssssssss', $titulo, $ano_publicacao, $isbn, $numero_paginas, $sinopse, $livro_id_genero, $livro_id_editora, $livro_id_idioma);
+        $sql->bind_param('ssssssss', $titulo, $ano_publicacao, $isbn, $numero_paginas, $sinopse, $livro_id_genero, $livro_id_editora, $livro_id_idioma, $livro_livro_autor);
         
         $sql->execute();
         

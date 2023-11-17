@@ -27,15 +27,16 @@ if ($result->num_rows > 0) {
 
     <a href="../telas_add/add_livro_autor.php">+ Adicionar livro</a>
 
+
     <div class="box" id="lista-livro">
         <?php $count = 0; ?>
         <?php foreach ($lista as $livro) : ?>
             <div class="livro" id="<?= htmlspecialchars($livro['id_livro']); ?>">
                 <a href="../importar/excluir_livro.php?id=<?= $livro['id_livro']; ?>">
-                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
+                    <button type="button" class="btn btn-danger">Excluir</button>
                 </a>
                 <a href="../telas_alter/alter_livro.php?id=<?= $livro['id_livro']; ?>">
-                    <button type="button" class="btn btn-secondary"><i class="fa-solid fa-pen"></i></button>
+                    <button type="button" class="btn btn-secondary">Editar</button>
                 </a>
 
                 <p id="<?= htmlspecialchars($livro['id_autor_livro']); ?>"><?= htmlspecialchars($livro['nome_autor']); ?></p>
@@ -46,7 +47,7 @@ if ($result->num_rows > 0) {
                 </div>
 
                 <a href="../importar/detalhes_livro.php?id=<?= $livro['id_livro']; ?>">
-                    <button type="button" class="btn btn-info"><i class="fa-solid fa-info"></i></button>
+                    <button type="button" class="btn btn-info">Ver mais</button>
                 </a>
             </div>
             <?php

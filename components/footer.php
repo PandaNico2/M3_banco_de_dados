@@ -33,7 +33,7 @@
             <tr>
                 <td><a href="<?php echo BASE_URL; ?>telas_add/add_idioma.php">Criar Idioma</a></td>
                 <td><a href="<?php echo BASE_URL; ?>telas_add/add_leitor.php">Criar Leitor</a></td>
-                <td><a href="<?php echo BASE_URL; ?>telas_add/add_livro.php">Criar Livro</a></td>
+                <td><a href="<?php echo BASE_URL; ?>/telas_add/add_livro_autor.php">Criar Livro</a></td>
                 <td><a href="<?php echo BASE_URL; ?>telas_ver/ver_idioma.php">Exibir Idioma</a></td>
                 <td><a href="<?php echo BASE_URL; ?>telas_ver/ver_leitor.php">Exibir Leitor</a></td>
                 <td><a href="<?php echo BASE_URL; ?>telas_ver/ver_livro.php">Exibir Livro</a></td>
