@@ -15,19 +15,21 @@ if ($result->num_rows > 0) {
 <div class="content">
     <form id="filtro" action="" method="GET">
         <div class="form-group">
-            <input type="text" name="busca" placeholder="Pesquise um título ...">
+            <input type="text" name="busca" placeholder="Pesquise um título ..." value="<?= isset($_GET['busca']) ? htmlspecialchars($_GET['busca']) : ''; ?>">
         </div>
         <div class="form-group">
             <label for="livro_id_genero">Livro por Gênero</label>
             <select name="livro_id_genero" id="livro_id_genero">
-                <option selected disabled value="">Busque por gênero</option>
+                <option disabled selected value="">Busque por gênero</option>
                 <?php foreach ($op_genero as $genero) : ?>
-                    <option value="<?= htmlspecialchars($genero['id_genero']); ?>"><?= htmlspecialchars($genero['genero']); ?></option>
+                    <option value="<?= htmlspecialchars($genero['id_genero']); ?>" <?= (isset($_GET['livro_id_genero']) && $_GET['livro_id_genero'] == $genero['id_genero']) ? 'selected' : ''; ?>>
+                        <?= htmlspecialchars($genero['genero']); ?>
+                    </option>
                     <?php endforeach; ?>
-                </select>
-            </div>
+            </select>
+        </div>
 
-            <button type="submit">Pesquisar</button>
+        <button class="btn btn-secondary"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
 
     <div id="lista-livro" class="box">
