@@ -11,3 +11,15 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 ?>
+
+<!-- <h1>Pendente</h1>
+<ul>
+    <li>Alterar FK</li>
+    <li>Alets</li>
+    <li>style alter</li>
+    <li>style vizualizar</li>
+    <li>Definir pesquisas</li>
+</ul>
+
+<br> -->
+
