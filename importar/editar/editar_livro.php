@@ -1,20 +1,42 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/m3_banco_de_dados/conexao.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_livro"])) {
-    // Receber dados do formulário
-    $id_livro = $_POST["id_livro"];
-    $titulo = $_POST["titulo"];
-    $ano_publicacao = $_POST["ano_publicacao"];
-    $livro_id_editora = $_POST["livro_id_editora"];
+// livro
+$id = filter_input(INPUT_POST, 'id_livro');
+$titulo = filter_input(INPUT_POST, 'titulo');
+$ano_publicacao = filter_input(INPUT_POST, 'ano_publicacao');
+$isbn = filter_input(INPUT_POST, 'isbn');
+$numero_paginas = filter_input(INPUT_POST, 'numero_paginas');
+$sinopse = filter_input(INPUT_POST, 'sinopse');
+$livro_id_genero = filter_input(INPUT_POST, 'livro_id_genero');
+$livro_id_editora = filter_input(INPUT_POST, 'livro_id_editora');
+$livro_id_idioma = filter_input(INPUT_POST, 'livro_id_idioma');
 
-    // Montar a consulta SQL para atualização
-    $sqlUpdate = "UPDATE livro SET titulo='$titulo', ano_publicacao='$ano_publicacao', livro_id_editora='$livro_id_editora' WHERE id_livro='$id_livro'";
-    
-    // Executar a consulta SQL de atualização
-    if ($conn->query($sqlUpdate) === TRUE) {
-        echo "Livro atualizado com sucesso!";
+if ($id && $titulo && $ano_publicacao && $isbn && $numero_paginas && $sinopse && $livro_id_genero && $livro_id_editora && $livro_id_idioma) {
+    $sql = $conn->prepare("UPDATE livro SET `titulo` = ?, `ano_publicacao` = ?, `isbn` = ?, `numero_paginas` = ?, `sinopse` = ?, `livro_id_genero` = ?, `livro_id_editora` = ?, `livro_id_idioma` = ? WHERE `id_livro` = ?");
+    $sql->bind_param('ssssssssi', $titulo, $ano_publicacao, $isbn, $numero_paginas, $sinopse, $livro_id_genero, $livro_id_editora, $livro_id_idioma, $id);
+
+    if ($sql->execute() === TRUE) {
+        echo "Alterado com sucesso";
+        header("Location: /m3_banco_de_dados/telas_ver/ver_livro.php");
+        exit;
     } else {
-        echo "Erro ao atualizar o livro: " . $conn->error;
+        echo "Erro na atualização: " . $sql->error;
     }
-}?>
+
+    $sql->close();
+    exit;
+} else {
+    echo "Erro nos dados recebidos ou dados ausentes.<br>";
+
+    echo "id: $id <br>";
+    echo "titulo: $titulo <br>";
+    echo "ano_publicacao: $ano_publicacao <br>";
+    echo "isbn: $isbn <br>";
+    echo "numero_paginas: $numero_paginas <br>";
+    echo "sinopse: $sinopse <br>";
+    echo "livro_id_genero: $livro_id_genero <br>";
+    echo "livro_id_editora: $livro_id_editora <br>";
+    echo "livro_id_idioma: $livro_id_idioma <br>";
+}
+?>

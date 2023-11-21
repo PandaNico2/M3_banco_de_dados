@@ -23,16 +23,23 @@ if ($id) {
 
 <div class="content">
 
-    <h1>Editar usuário</h1>
     <form action="/m3_banco_de_dados/importar/editar/editar_editora.php" method="POST">
-        <input type="hidden" value="<?= $editora['id_editora']; ?>"  name="id_editora" >
-        <label for="nome">Nome</label>
-        <input type="text" value="<?= $editora['nome']; ?>" name="nome">
+        <div class="titulo">
+        <a href="/m3_banco_de_dados/telas_ver/ver_editora.php"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1>Editar editora</h1>
+        </div>
+        <input type="hidden" value="<?= $editora['id_editora']; ?>" name="id_editora">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" value="<?= $editora['nome']; ?>" name="nome">
+        </div>
 
-        <label for="localizacao">localizacao</label>
-        <input type="text" value="<?= $editora['localizacao']; ?>" name="localizacao">
+        <div class="form-group">
+            <label for="localizacao">localizacao</label>
+            <input type="text" value="<?= $editora['localizacao']; ?>" name="localizacao">
+        </div>
 
-        <button type="submit" value="salvar">Atualizar</button>
+        <button type="submit" value="salvar" class="btn btn-secondary">Atualizar</button>
     </form>
 
 </div>
@@ -40,3 +47,5 @@ if ($id) {
 <?php
 require_once('../components/footer.php');
 ?>
+
+<link rel="stylesheet" href="../css/add.css">

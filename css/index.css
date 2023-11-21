@@ -3,7 +3,12 @@ body {
 }
 
 /* Barra de navegação */
-nav {
+.table,
+footer table {
+    margin-bottom: 0 !important;
+}
+
+nav.head {
     display: inline-flex;
     justify-content: space-evenly;
     align-items: center;
@@ -70,6 +75,7 @@ div.content {
     min-height: 300px;
     margin: 0 auto;
     padding: 20px;
+    min-height: 25rem;
 }
 
 /* Footer */
@@ -95,3 +101,8 @@ footer {
 footer a {
     color: black
 }
+
+/* paginação */
+ul.pagination{
+    justify-content: center
+  }

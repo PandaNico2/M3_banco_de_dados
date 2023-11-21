@@ -16,7 +16,7 @@ define('BASE_URL', 'http://localhost/m3_banco_de_dados/');
 
 <body>
 
-    <nav>
+    <nav class="head">
         <div class="logo">
             <a href="<?php echo BASE_URL; ?>index.php">
                 <img src="<?php echo BASE_URL; ?>img/nicolau_logo.png" alt="" width="200">

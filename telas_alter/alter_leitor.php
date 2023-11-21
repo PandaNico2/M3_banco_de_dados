@@ -23,9 +23,12 @@ if ($id) {
 
 <div class="content">
 
-    <h1>Editar leitor</h1>
     <form action="/m3_banco_de_dados/importar/editar/editar_leitor.php" method="POST">
-        <input type="hidden" value="<?= $leitor['id_leitor']; ?>" name="id_leitor">
+    <div class="titulo">
+            <a href="/m3_banco_de_dados/telas_ver/ver_leitor.php"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1>Editar leitor</h1>
+    </div>
+            <input type="hidden" value="<?= $leitor['id_leitor']; ?>" name="id_leitor">
         <div class="form-group">
             <label for="nome">nome</label>
             <input type="text" value="<?= $leitor['nome']; ?>" name="nome">
@@ -43,7 +46,7 @@ if ($id) {
             <input type="text" value="<?= $leitor['endereco']; ?>" name="endereco">
         </div>
 
-        <button type="submit" value="salvar">Atualizar</button>
+        <button type="submit" value="salvar" class="btn btn-secondary">Atualizar</button>
     </form>
 
 </div>
@@ -51,3 +54,5 @@ if ($id) {
 <?php
 require_once('../components/footer.php');
 ?>
+
+<link rel="stylesheet" href="../css/add.css">

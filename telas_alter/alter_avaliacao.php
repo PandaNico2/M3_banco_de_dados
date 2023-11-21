@@ -29,6 +29,14 @@ if ($resultLivros->num_rows > 0) {
     }
 }
 
+$leitores = [];
+$resultLeitor = $conn->query("SELECT id_leitor, nome FROM leitor;");
+if ($resultLeitor->num_rows > 0) {
+    while ($row = $resultLeitor->fetch_assoc()) {
+        $leitores[] = $row;
+    }
+}
+
 $classificacoes = [];
 $resultClassificacoes = $conn->query("SELECT * FROM classificacao;");
 if ($resultClassificacoes->num_rows > 0) {
@@ -41,7 +49,7 @@ if ($resultClassificacoes->num_rows > 0) {
 <div class="content">
     <form action="/m3_banco_de_dados/importar/editar/editar_avaliacao.php" method="POST">
         <div class="titulo">
-            <h1>Criar Avaliacao</h1>
+            <h1>Editar Avaliação</h1>
             <a href="../telas_ver/ver_avaliacao.php"><i class="fa-solid fa-address-card"></i></a>
         </div>
 
@@ -60,31 +68,42 @@ if ($resultClassificacoes->num_rows > 0) {
         <div class="form-group">
             <label for="avaliacao_id_livro">Livro</label>
             <select name="avaliacao_id_livro" id="avaliacao_id_livro">
-                <option value="<?= $avaliacao['avaliacao_id_livro']; ?>" selected><?= $avaliacao['avaliacao_id_livro']; ?></option>
-
                 <?php foreach ($livros as $livro) : ?>
-                    <option value="<?= htmlspecialchars($livro['id_livro']); ?>"><?= htmlspecialchars($livro['titulo']); ?></option>
+                    <option value="<?= $livro['id_livro']; ?>" <?= ($avaliacao['avaliacao_id_livro'] == $livro['id_livro']) ? 'selected' : ''; ?>>
+                        <?= $livro['titulo']; ?>
+                    </option>
                 <?php endforeach; ?>
+            </select>
+        </div>
 
+        <div class="form-group">
+            <label for="avaliacao_id_leitor">Leitor</label>
+            <select name="avaliacao_id_leitor" id="avaliacao_id_leitor">
+                <?php foreach ($leitores as $leitor) : ?>
+                    <option value="<?= $leitor['id_leitor']; ?>" <?= ($avaliacao['avaliacao_id_leitor'] == $leitor['id_leitor']) ? 'selected' : ''; ?>>
+                        <?= $leitor['nome']; ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
         </div>
 
         <div class="form-group">
             <label for="avaliacao_id_classificacao">Classificação</label>
             <select name="avaliacao_id_classificacao" id="avaliacao_id_classificacao">
-                <option value="<?= $avaliacao['avaliacao_id_classificacao']; ?>" selected><?= $avaliacao['avaliacao_id_classificacao']; ?></option>
-
                 <?php foreach ($classificacoes as $classificacao) : ?>
-                    <option value="<?= htmlspecialchars($classificacao['id_classificacao']); ?>"><?= htmlspecialchars($classificacao['num_estrelas']); ?></option>
+                    <option value="<?= $classificacao['id_classificacao']; ?>" <?= ($avaliacao['avaliacao_id_classificacao'] == $classificacao['id_classificacao']) ? 'selected' : ''; ?>>
+                        <?= $classificacao['num_estrelas']; ?>
+                    </option>
                 <?php endforeach; ?>
-
             </select>
         </div>
 
-        <button type="submit" value="salvar">Atualizar</button>
+        <button type="submit" value="salvar" class="btn btn-secondary">Atualizar</button>
     </form>
 </div>
 
 <?php
 require_once('../components/footer.php');
 ?>
+
+ <link rel="stylesheet" href="../css/add.css">

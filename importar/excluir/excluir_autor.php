@@ -5,10 +5,10 @@ $id = filter_input(INPUT_GET, 'id');
 
 if ($id !== null && $id !== false) {
     // Excluir da tabela autor_livro
-    $sql_autor_livro = $conn->prepare("DELETE FROM autor_livro WHERE id_autor_livro = ?");
-    $sql_autor_livro->bind_param('i', $id);
-    $sql_autor_livro->execute();
-    $sql_autor_livro->close();
+    // $sql_autor_livro = $conn->prepare("DELETE FROM autor_livro WHERE id_autor_livro = ?");
+    // $sql_autor_livro->bind_param('i', $id);
+    // $sql_autor_livro->execute();
+    // $sql_autor_livro->close();
 
     // Excluir da tabela autores
     $sql_autores = $conn->prepare("DELETE FROM autores WHERE id_autores = ?");

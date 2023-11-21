@@ -23,13 +23,18 @@ if ($id) {
 
 <div class="content">
 
-    <h1>Editar usuário</h1>
     <form action="/m3_banco_de_dados/importar/editar/editar_status.php" method="POST">
+    <div class="titulo">
+            <a href="/m3_banco_de_dados/telas_ver/ver_status.php"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1>Editar status</h1>
+    </div>
         <input type="hidden" value="<?= $status['id_status']; ?>"  name="id_status" >
+        <div class="form-group">
         <label for="status">Status</label>
         <input type="text" value="<?= $status['status']; ?>" name="status">
+        </div>
 
-        <button type="submit" value="salvar">Atualizar</button>
+        <button type="submit" value="salvar" class="btn btn-secondary">Atualizar</button>
     </form>
 
 </div>
@@ -37,3 +42,5 @@ if ($id) {
 <?php
 require_once('../components/footer.php');
 ?>
+
+<link rel="stylesheet" href="../css/add.css">

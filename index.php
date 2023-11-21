@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
                     <option value="<?= htmlspecialchars($genero['id_genero']); ?>" <?= (isset($_GET['livro_id_genero']) && $_GET['livro_id_genero'] == $genero['id_genero']) ? 'selected' : ''; ?>>
                         <?= htmlspecialchars($genero['genero']); ?>
                     </option>
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
             </select>
         </div>
 

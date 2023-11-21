@@ -122,9 +122,11 @@ if (isset($_POST['mostrarNovaPalavra']) && $_POST['mostrarNovaPalavra'] == 'true
                 <label for="autor">Autor</label>
                 <select name="autor" id="autor">
                     <option value="" disabled selected>Selecione o autor</option>
-                    <?php foreach ($op_autor as $op_autor) : ?>
-                        <option value="<?= htmlspecialchars($op_autor['id_autores']); ?>"><?= htmlspecialchars($op_autor['nome']); ?></option>
+                    <?php foreach ($op_autor as $autor_op) : ?>
+                        <option value="<?= htmlspecialchars($autor_op['id_autores']); ?>"><?= htmlspecialchars($autor_op['nome']); ?></option>
                     <?php endforeach; ?>
+
+
                 </select>
             </div>
         </div>
@@ -137,16 +139,16 @@ if (isset($_POST['mostrarNovaPalavra']) && $_POST['mostrarNovaPalavra'] == 'true
                 <a href="../telas_ver/ver_autor.php"><i class="fa-solid fa-eye"></i></a>
             </div>
             <div class="form-group">
-                <label for="nome_autor">Nome</label>
-                <input type="text" placeholder="Informe o nome do autor" id="nome_autor" name="nome_autor">
+                <label for="nome">Nome</label>
+                <input type="text" placeholder="Informe o nome do autor" id="nome" name="nome">
             </div>
             <div class="form-group">
-                <label for="nacionalidade_autor">Nacionalidade</label>
-                <input type="text" placeholder="Informe a nacionalidade" id="nacionalidade_autor" name="nacionalidade_autor">
+                <label for="nacionalidade">Nacionalidade</label>
+                <input type="text" placeholder="Informe a nacionalidade" id="nacionalidade" name="nacionalidade">
             </div>
             <div class="form-group">
-                <label for="data_nascimento_autor">Data de nascimento</label>
-                <input type="date" id="data_nascimento_autor" name="data_nascimento_autor">
+                <label for="data_nascimento">Data de nascimento</label>
+                <input type="date" id="data_nascimento" name="data_nascimento">
             </div>
         </div>
 
@@ -160,8 +162,8 @@ if (isset($_POST['mostrarNovaPalavra']) && $_POST['mostrarNovaPalavra'] == 'true
                 <label for="palavra">Palavra chave</label>
                 <select name="palavra" id="palavra">
                     <option value="" disabled selected>Selecione palavra chave</option>
-                    <?php foreach ($op_palavra as $op_palavra) : ?>
-                        <option value="<?= htmlspecialchars($op_palavra['id_palavra_chave']); ?>"><?= htmlspecialchars($op_palavra['palavra']); ?></option>
+                    <?php foreach ($op_palavra as $palavra_op) : ?>
+                        <option value="<?= htmlspecialchars($palavra_op['id_palavra_chave']); ?>"><?= htmlspecialchars($palavra_op['palavra']); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>

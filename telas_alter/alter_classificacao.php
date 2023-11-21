@@ -22,14 +22,18 @@ if ($id) {
 ?>
 
 <div class="content">
-
-    <h1>Editar usuário</h1>
     <form action="/m3_banco_de_dados/importar/editar/editar_classificacao.php" method="POST">
-        <input type="hidden" value="<?= $classificacao['id_classificacao']; ?>"  name="id_classificacao" >
-        <label for="num_estrelas">num_estrelas</label>
-        <input type="text" value="<?= $classificacao['num_estrelas']; ?>" name="num_estrelas">
+        <div class="titulo">
+            <a href="/m3_banco_de_dados/telas_ver/ver_classificacao.php"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1>Editar Classificação</h1>
+        </div>
+        <input type="hidden" value="<?= $classificacao['id_classificacao']; ?>" name="id_classificacao">
+        <div class="form-group">
+            <label for="num_estrelas">Numero de estrelas</label>
+            <input type="text" value="<?= $classificacao['num_estrelas']; ?>" name="num_estrelas">
+        </div>
 
-        <button type="submit" value="salvar">Atualizar</button>
+        <button type="submit" value="salvar" class="btn btn-secondary">Atualizar</button>
     </form>
 
 </div>
@@ -37,3 +41,5 @@ if ($id) {
 <?php
 require_once('../components/footer.php');
 ?>
+
+<link rel="stylesheet" href="../css/add.css">
