@@ -38,11 +38,11 @@ if ($result->num_rows > 0) {
                 <th>Id</th>
                 <th>data_emprestimo</th>
                 <th>data_devolucao</th>
-                <th>emprestimo_id_livro</th>
+                <!-- <th>emprestimo_id_livro</th> -->
                 <th>Nome do livro</th>
-                <th>emprestimo_id_leitor</th>
+                <!-- <th>emprestimo_id_leitor</th> -->
                 <th>Nome do leitor</th>
-                <th>emprestimo_id_status</th>
+                <!-- <th>emprestimo_id_status</th> -->
                 <th>status</th>
                 <th>Ações</th>
             </tr>
@@ -53,13 +53,13 @@ if ($result->num_rows > 0) {
                 <td> <?= htmlspecialchars($emprestimo['data_emprestimo']); ?> </td>
                 <td> <?= htmlspecialchars($emprestimo['data_devolucao']); ?> </td>
 
-                <td> <?= htmlspecialchars($emprestimo['emprestimo_id_livro']); ?> </td>
+                <!-- <td> <?= htmlspecialchars($emprestimo['emprestimo_id_livro']); ?> </td> -->
                 <td> <?= htmlspecialchars($emprestimo['nome_livro']); ?> </td>
 
-                <td> <?= htmlspecialchars($emprestimo['emprestimo_id_leitor']); ?> </td>
+                <!-- <td> <?= htmlspecialchars($emprestimo['emprestimo_id_leitor']); ?> </td> -->
                 <td> <?= htmlspecialchars($emprestimo['nome_leitor']); ?> </td>
 
-                <td> <?= htmlspecialchars($emprestimo['emprestimo_id_status']); ?> </td>
+                <!-- <td> <?= htmlspecialchars($emprestimo['emprestimo_id_status']); ?> </td> -->
                 <td> <?= htmlspecialchars($emprestimo['status']); ?> </td>
                 <td>
                     <a href="../telas_alter/alter_emprestimo.php?id=<?= $emprestimo['id_emprestimo']; ?>">

@@ -10,7 +10,6 @@ if ($result->num_rows > 0) {
     }
 }
 
-
 $op_editora = [];
 $result = $conn->query("SELECT * FROM editora;");
 if ($result->num_rows > 0) {
@@ -27,9 +26,8 @@ if ($result->num_rows > 0) {
     }
 }
 
-
 $op_autor = [];
-$result = $conn->query("SELECT id_autores, nome FROM autores;");
+$result = $conn->query("SELECT * FROM autores;");
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $op_autor[] = $row;
@@ -123,7 +121,7 @@ if (isset($_POST['mostrarNovaPalavra']) && $_POST['mostrarNovaPalavra'] == 'true
                 <select name="autor" id="autor">
                     <option value="" disabled selected>Selecione o autor</option>
                     <?php foreach ($op_autor as $autor_op) : ?>
-                        <option value="<?= htmlspecialchars($autor_op['id_autores']); ?>"><?= htmlspecialchars($autor_op['nome']); ?></option>
+                        <option value="<?= htmlspecialchars($autor_op['id_autores']); ?>">nome: <?= htmlspecialchars($autor_op['nome']); ?> nacionalidade: <?= htmlspecialchars($autor_op['nacionalidade']); ?> nascimento: <?= htmlspecialchars($autor_op['data_nascimento']); ?></option>
                     <?php endforeach; ?>
 
 

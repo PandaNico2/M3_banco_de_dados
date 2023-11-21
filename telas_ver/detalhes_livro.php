@@ -49,45 +49,45 @@ if ($result->num_rows > 0) {
 
 <div class="content">
     <?php foreach ($lista as $livro) : ?>
-        <h1><?= htmlspecialchars($livro['id_livro']); ?></h1>
+        <h1 id="<?= htmlspecialchars($livro['id_livro']); ?>"><?= htmlspecialchars($livro['titulo']); ?></h1>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th>id_livro</th>
-                    <th>titulo</th>
+                    <!-- <th>id_livro</th> -->
+                    <!-- <th>titulo</th> -->
                     <th>ano_publicacao</th>
                     <th>isbn</th>
                     <th>numero_paginas</th>
                     <th>sinopse</th>
-                    <th>livro_id_genero</th>
+                    <!-- <th>livro_id_genero</th> -->
                     <th>genero</th>
-                    <th>livro_id_editora</th>
+                    <!-- <th>livro_id_editora</th> -->
                     <th>nome_editora</th>
-                    <th>livro_id_idioma</th>
+                    <!-- <th>livro_id_idioma</th> -->
                     <th>idioma</th>
-                    <th>autor_livro</th>
+                    <!-- <th>autor_livro</th> -->
                     <th>nome_autor</th>
                 </tr>
             </thead>
 
             <tr>
-                <td> </td>
-                <td><?= htmlspecialchars($livro['titulo']); ?></td>
+                <!-- <td> </td> -->
+                <!-- <td><?= htmlspecialchars($livro['titulo']); ?></td> -->
                 <td><?= htmlspecialchars($livro['ano_publicacao']); ?></td>
                 <td><?= htmlspecialchars($livro['isbn']); ?> </td>
                 <td><?= htmlspecialchars($livro['numero_paginas']); ?> </td>
                 <td><?= htmlspecialchars($livro['sinopse']); ?> </td>
 
-                <td><?= htmlspecialchars($livro['livro_id_genero']); ?> </td>
+                <!-- <td><?= htmlspecialchars($livro['livro_id_genero']); ?> </td> -->
                 <td><?= htmlspecialchars($livro['genero']); ?> </td>
 
-                <td><?= htmlspecialchars($livro['livro_id_editora']); ?></td>
+                <!-- <td><?= htmlspecialchars($livro['livro_id_editora']); ?></td> -->
                 <td><?= htmlspecialchars($livro['nome_editora']); ?></td>
 
-                <td><?= htmlspecialchars($livro['livro_id_idioma']); ?> </td>
+                <!-- <td><?= htmlspecialchars($livro['livro_id_idioma']); ?> </td> -->
                 <td><?= htmlspecialchars($livro['idioma']); ?> </td>
 
-                <td><?= htmlspecialchars($livro['id_autor_livro']); ?></td>
+                <!-- <td><?= htmlspecialchars($livro['id_autor_livro']); ?></td> -->
                 <td><?= htmlspecialchars($livro['nome_autor']); ?></td>
             </tr>
         <?php endforeach; ?>
