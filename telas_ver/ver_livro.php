@@ -23,9 +23,11 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="content">
+    <a href="../telas_ver/ver_livro_palavraChave.php">livro palavra chave</a>
+    <a href="../telas_ver/ver_livro_autor.php">livro Autor</a>
     <h1>Livro</h1>
 
-    <a href="../telas_add/add_livro_autor.php">
+    <a href="../telas_add/add_livro.php">
     <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Adicionar Livro</button>
     </a>
 
