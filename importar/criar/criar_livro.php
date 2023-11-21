@@ -18,7 +18,7 @@ if ($titulo && $ano_publicacao && $isbn && $numero_paginas && $sinopse && $livro
         $sql_livro->bind_param('ssssssss', $titulo, $ano_publicacao, $isbn, $numero_paginas, $sinopse, $livro_id_genero, $livro_id_editora, $livro_id_idioma);
         $sql_livro->execute();
 
-        header('Location: /m3_banco_de_dados/telas_add/add_livro_palavraChave.php');
+        header('Location: /m3_banco_de_dados/telas_add/add_autor_livro.php');
         exit;
     } catch (PDOException $e) {
         echo "Erro ao inserir livro: " . $e->getMessage();

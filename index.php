@@ -3,12 +3,22 @@ include './components/head.php';
 require_once('./conexao.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/m3_banco_de_dados/conexao.php');
 
-$op_genero = [];
-$result = $conn->query("SELECT * FROM genero;");
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $op_genero[] = $row;
+// Importar tabelas de gêneros, editoras e idiomas
+$op_genero = importarTabela($conn, "SELECT * FROM genero;");
+$op_editora = importarTabela($conn, "SELECT id_editora, nome FROM editora;");
+
+function importarTabela($conexao, $sql)
+{
+    $tabela = [];
+    $result = $conexao->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $tabela[] = $row;
+        }
     }
+
+    return $tabela;
 }
 ?>
 
@@ -17,8 +27,9 @@ if ($result->num_rows > 0) {
         <div class="form-group">
             <input type="text" name="busca" placeholder="Pesquise um título ..." value="<?= isset($_GET['busca']) ? htmlspecialchars($_GET['busca']) : ''; ?>">
         </div>
+
         <div class="form-group">
-            <label for="livro_id_genero">Livro por Gênero</label>
+            <label for="livro_id_genero">Listar por Gênero</label>
             <select name="livro_id_genero" id="livro_id_genero">
                 <option disabled selected value="">Busque por gênero</option>
                 <?php foreach ($op_genero as $genero) : ?>
@@ -29,7 +40,24 @@ if ($result->num_rows > 0) {
             </select>
         </div>
 
+        <div class="form-group">
+            <label for="livro_id_editora">Listar por Editora</label>
+            <select name="livro_id_editora" id="livro_id_editora">
+                <option disabled selected value="">Busque por editora</option>
+                <?php foreach ($op_editora as $editora) : ?>
+                    <option value="<?= htmlspecialchars($editora['id_editora']); ?>" <?= (isset($_GET['livro_id_editora']) && $_GET['livro_id_editora'] == $editora['id_editora']) ? 'selected' : ''; ?>>
+                        <?= htmlspecialchars($editora['nome']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
         <button class="btn btn-secondary"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button>
+            <a href="/m3_banco_de_dados/index.php">
+                <i class="fa-solid fa-rotate-right"></i>
+            </a>
+        </button>
     </form>
 
     <div id="lista-livro" class="box">
@@ -47,7 +75,7 @@ if ($result->num_rows > 0) {
                 JOIN idioma i ON l.livro_id_idioma = i.id_idioma
                 JOIN autor_livro al ON l.id_livro = al.id_livro_autor
                 JOIN autores a ON al.id_autor_livro = a.id_autores
-                WHERE (titulo LIKE '%$pesquisa%')";
+                WHERE (l.titulo LIKE '%$pesquisa%' OR a.nome LIKE '%$pesquisa%')";
 
             if (!empty($generoSelecionado)) {
                 $sql_livro .= " AND l.livro_id_genero = '$generoSelecionado'";
@@ -58,7 +86,7 @@ if ($result->num_rows > 0) {
             if ($sqlQuery->num_rows == 0) {
                 echo '<p>Nenhum resultado encontrado...</p>';
             } else {
-                while ($dados =  $sqlQuery->fetch_assoc()) {
+                while ($dados = $sqlQuery->fetch_assoc()) {
         ?>
                     <div class="livro" id="<?= htmlspecialchars($dados['id_livro']); ?>">
                         <!-- <div class="botoes_acao">

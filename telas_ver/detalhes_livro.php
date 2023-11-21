@@ -10,90 +10,62 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/m3_banco_de_dados/conexao.php');
 
 $lista = [];
 $query = $conn->prepare("SELECT
-l.id_livro,
-l.titulo,
-l.ano_publicacao,
-l.isbn,
-l.numero_paginas,
-l.sinopse,
-l.livro_id_genero,
-g.genero,
-l.livro_id_editora,
-ed.nome AS nome_editora,
-l.livro_id_idioma,
-i.nome AS idioma,
-al.id_autor_livro,
-a.nome AS nome_autor
-FROM
-livro l
-JOIN genero g ON l.livro_id_genero = g.id_genero
-JOIN editora ed ON l.livro_id_editora = ed.id_editora
-JOIN idioma i ON l.livro_id_idioma = i.id_idioma
-JOIN autor_livro al ON l.id_livro = al.id_livro_autor
-JOIN autores a ON al.id_autor_livro = a.id_autores
-WHERE id_livro = ?;");
+    l.id_livro,
+    l.titulo,
+    l.ano_publicacao,
+    l.isbn,
+    l.numero_paginas,
+    l.sinopse,
+    l.livro_id_genero,
+    g.genero,
+    l.livro_id_editora,
+    ed.nome AS nome_editora,
+    l.livro_id_idioma,
+    i.nome AS idioma,
+    al.id_autor_livro,
+    a.nome AS nome_autor
+    FROM
+    livro l
+    JOIN genero g ON l.livro_id_genero = g.id_genero
+    JOIN editora ed ON l.livro_id_editora = ed.id_editora
+    JOIN idioma i ON l.livro_id_idioma = i.id_idioma
+    JOIN autor_livro al ON l.id_livro = al.id_livro_autor
+    JOIN autores a ON al.id_autor_livro = a.id_autores
+    WHERE id_livro = ?;");
 $query->bind_param('i', $id_livro);
 $query->execute();
 $result = $query->get_result();
 
 if ($result->num_rows > 0) {
+    $livro = $result->fetch_assoc(); // Apenas uma vez para pegar os dados do livro
+
+    // Agora, colete todos os autores em um array
+    $autores = [];
     while ($row = $result->fetch_assoc()) {
-        $lista[] = $row;
+        $autores[] = $row['nome_autor'];
     }
+
+    // Remova duplicatas e imprima os autores
+    $autores = array_unique($autores);
+    $autores_str = implode(", ", $autores);
+
+    ?>
+    <div class="content">
+        <h1 id="<?= htmlspecialchars($livro['id_livro']); ?>"><?= htmlspecialchars($livro['titulo']); ?></h1>
+        <p>Ano de publicação: <?= htmlspecialchars($livro['ano_publicacao']); ?></p><br>
+        <p>ISBN: <?= htmlspecialchars($livro['isbn']); ?></p><br>
+        <p>Número de páginas: <?= htmlspecialchars($livro['numero_paginas']); ?></p><br>
+        <p>Gênero: <?= htmlspecialchars($livro['genero']); ?></p><br>
+        <p>Editora: <?= htmlspecialchars($livro['nome_editora']); ?></p><br>
+        <p>Idioma: <?= htmlspecialchars($livro['idioma']); ?></p><br>
+        <p>Autor(es): <?= htmlspecialchars($autores_str); ?></p><br>
+        <p>Sinopse: </p>
+        <p><?= htmlspecialchars($livro['sinopse']); ?></p><br>
+    </div>
+    <?php
 } else {
     echo "Nenhum resultado encontrado.";
 }
 
-
-?>
-
-<div class="content">
-    <?php foreach ($lista as $livro) : ?>
-        <h1 id="<?= htmlspecialchars($livro['id_livro']); ?>"><?= htmlspecialchars($livro['titulo']); ?></h1>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <!-- <th>id_livro</th> -->
-                    <!-- <th>titulo</th> -->
-                    <th>ano_publicacao</th>
-                    <th>isbn</th>
-                    <th>numero_paginas</th>
-                    <th>sinopse</th>
-                    <!-- <th>livro_id_genero</th> -->
-                    <th>genero</th>
-                    <!-- <th>livro_id_editora</th> -->
-                    <th>nome_editora</th>
-                    <!-- <th>livro_id_idioma</th> -->
-                    <th>idioma</th>
-                    <!-- <th>autor_livro</th> -->
-                    <th>nome_autor</th>
-                </tr>
-            </thead>
-
-            <tr>
-                <!-- <td> </td> -->
-                <!-- <td><?= htmlspecialchars($livro['titulo']); ?></td> -->
-                <td><?= htmlspecialchars($livro['ano_publicacao']); ?></td>
-                <td><?= htmlspecialchars($livro['isbn']); ?> </td>
-                <td><?= htmlspecialchars($livro['numero_paginas']); ?> </td>
-                <td><?= htmlspecialchars($livro['sinopse']); ?> </td>
-
-                <!-- <td><?= htmlspecialchars($livro['livro_id_genero']); ?> </td> -->
-                <td><?= htmlspecialchars($livro['genero']); ?> </td>
-
-                <!-- <td><?= htmlspecialchars($livro['livro_id_editora']); ?></td> -->
-                <td><?= htmlspecialchars($livro['nome_editora']); ?></td>
-
-                <!-- <td><?= htmlspecialchars($livro['livro_id_idioma']); ?> </td> -->
-                <td><?= htmlspecialchars($livro['idioma']); ?> </td>
-
-                <!-- <td><?= htmlspecialchars($livro['id_autor_livro']); ?></td> -->
-                <td><?= htmlspecialchars($livro['nome_autor']); ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </table>
-</div>
-
-<?php
 require_once('../components/footer.php');
 ?>

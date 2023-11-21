@@ -25,7 +25,7 @@ function importarTabela($conexao, $sql)
     <form action="/m3_banco_de_dados/importar/criar/criar_livro_palavraChave.php" method="POST">
         <div class="titulo">
             <h1>Cadastrar Livro Palavra-chave</h1>
-            <a href="../telas_ver/ver_livro_palavraChave.php"><i class="fa-solid fa-eye"></i> Visualizar</a>
+            <a href="../telas_ver/ver_livro_palavraChave.php"><i class="fa-solid fa-eye"></i></a>
         </div>
 
         <div class="form-group">

@@ -17,14 +17,17 @@ $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $lista[] = $row;
+        $id_livro = $row['id_livro'];
+        // Adiciona o autor ao array do livro correspondente
+        $lista[$id_livro]['livro'] = $row;
+        $lista[$id_livro]['autores'][] = $row['nome_autor'];
     }
 }
 ?>
 
 <div class="content">
     <a href="../telas_ver/ver_livro_palavraChave.php">livro palavra chave</a>
-    <a href="../telas_ver/ver_livro_autor.php">livro Autor</a>
+    <a href="../telas_ver/ver_autor_livro.php">livro Autor</a>
     <h1>Livro</h1>
 
     <a href="../telas_add/add_livro.php">
@@ -35,24 +38,28 @@ if ($result->num_rows > 0) {
     <div class="box" id="lista-livro">
         <?php $count = 0; ?>
         <?php foreach ($lista as $livro) : ?>
-            <div class="livro" id="<?= htmlspecialchars($livro['id_livro']); ?>">
+            <div class="livro" id="<?= htmlspecialchars($livro['livro']['id_livro']); ?>">
             <div class="botoes_acao">
-                <a href="../importar/excluir/excluir_livro.php?id=<?= $livro['id_livro']; ?>">
+                <a href="../importar/excluir/excluir_livro.php?id=<?= $livro['livro']['id_livro']; ?>">
                     <button type="button" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
                 </a>
-                <a href="../telas_alter/alter_livro.php?id=<?= $livro['id_livro']; ?>">
+                <a href="../telas_alter/alter_livro.php?id=<?= $livro['livro']['id_livro']; ?>">
                     <button type="button" class="btn btn-secondary"><i class="fa-solid fa-pen"></i></button>
                 </a>
             </div>
 
-                <p id="<?= htmlspecialchars($livro['id_autor_livro']); ?>"><?= htmlspecialchars($livro['nome_autor']); ?></p>
-                <h3><?= htmlspecialchars($livro['titulo']); ?></h3>
+                <p id="<?= htmlspecialchars($livro['livro']['id_autor_livro']); ?>">
+                    <?= implode(', ', $livro['autores']); ?>
+                </p>
+                <h3><?= htmlspecialchars($livro['livro']['titulo']); ?></h3>
                 <div class="info_livro">
-                    <p><?= htmlspecialchars($livro['ano_publicacao']); ?></p>
-                    <p id="<?= htmlspecialchars($livro['livro_id_editora']); ?>"><?= htmlspecialchars($livro['nome_editora']); ?></p>
+                    <p><?= htmlspecialchars($livro['livro']['ano_publicacao']); ?></p>
+                    <p id="<?= htmlspecialchars($livro['livro']['livro_id_editora']); ?>">
+                        <?= htmlspecialchars($livro['livro']['nome_editora']); ?>
+                    </p>
                 </div>
 
-                <a href="./detalhes_livro.php?id=<?= $livro['id_livro']; ?>">
+                <a href="./detalhes_livro.php?id=<?= $livro['livro']['id_livro']; ?>">
                     <button type="button" class="btn btn-info"><i class="fa-solid fa-info"></i> ver mais informações</button>
                 </a>
             </div>
@@ -64,58 +71,6 @@ if ($result->num_rows > 0) {
             ?>
         <?php endforeach; ?>
     </div>
-
-    <!-- 
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th>id_livro</th>
-                <th>titulo</th>
-                <th>ano_publicacao</th>
-                <th>isbn</th>
-                <th>numero_paginas</th>
-                <th>sinopse</th>
-                <th>livro_id_genero</th>
-                <th>genero</th>
-                <th>livro_id_editora</th>
-                <th>nome_editora</th>
-                <th>livro_id_idioma</th>
-                <th>idioma</th>
-                <th>autor_livro</th>
-                <th>nome_autor</th>
-            </tr>
-        </thead>
-        <?php foreach ($lista as $livro) : ?>
-            <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> <?= htmlspecialchars($livro['isbn']); ?> </td>
-                <td> <?= htmlspecialchars($livro['numero_paginas']); ?> </td>
-                <td> <?= htmlspecialchars($livro['sinopse']); ?> </td>
-
-                <td> <?= htmlspecialchars($livro['livro_id_genero']); ?> </td>
-                <td> <?= htmlspecialchars($livro['genero']); ?> </td>
-
-                <td> </td>
-                <td> </td>
-
-                <td> <?= htmlspecialchars($livro['livro_id_idioma']); ?> </td>
-                <td> <?= htmlspecialchars($livro['idioma']); ?> </td>
-
-                <td> </td>
-                <td> </td>
-                <td>
-                    <a href="../telas_alter/alter_livro.php?id=<?= $livro['id_livro']; ?>">
-                        <button type="button" class="btn btn-secondary">Editar</button>
-                    </a>
-                    <a href="../importar/excluir_livro.php?id=<?= $livro['id_livro']; ?>">
-                        <button type="button" class="btn btn-danger">Excluir</button>
-                    </a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table> -->
 </div>
 
 <?php
