@@ -4,7 +4,7 @@ Projeto CRUD para uma biblioteca particular
 
 ## Descrição
 
-Este é um projeto de sistema CRUD (Create, Read, Update, Delete) para uma biblioteca. O sistema permite a gestão de livros, autores, usuários e empréstimos. Ele é desenvolvido em php e MySql e utiliza.
+Este é um projeto de sistema CRUD (Create, Read, Update, Delete) para uma biblioteca. O sistema permite a gestão de livros, autores, usuários e empréstimos. Ele é desenvolvido em php e MySql.
 
 ## Funcionalidades
 
